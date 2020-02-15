@@ -28,13 +28,24 @@ __meta__ = {
 layer = 100
 
 [node name="TurnLabel" type="Label" parent="WorldUI/CanvasLayer"]
-margin_left = 1202.36
-margin_top = 626.065
-margin_right = 1276.36
-margin_bottom = 708.065
-text = "AHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+margin_left = 1202.0
+margin_top = 626.0
+margin_right = 1276.0
+margin_bottom = 645.0
+text = "Turn Label"
 align = 2
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GoldLabel" type="Label" parent="WorldUI/CanvasLayer"]
+margin_left = 1208.68
+margin_top = 640.849
+margin_right = 1279.68
+margin_bottom = 660.849
+text = "Gold Label"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="turn_passed" from="." to="City" method="_on_World_turn_passed"]

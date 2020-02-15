@@ -3,6 +3,7 @@ extends Node
 var time = 0
 var time_passed = 60
 var turn = 0
+signal turn_passed
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -10,8 +11,7 @@ var turn = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,4 +19,9 @@ func _process(delta):
 	if time > time_passed:
 		time = 0
 		turn += 1
-	$WorldUI/CanvasLayer/TurnLabel.text = str(turn)
+		_on_Turn_passed()
+	$WorldUI/CanvasLayer/TurnLabel.text = "Turn: " + str(turn)
+
+
+func _on_Turn_passed():
+		emit_signal("turn_passed")
