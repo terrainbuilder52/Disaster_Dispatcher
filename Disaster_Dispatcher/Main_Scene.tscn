@@ -40,11 +40,12 @@ __meta__ = {
 }
 
 [node name="GoldLabel" type="Label" parent="WorldUI/CanvasLayer"]
-margin_left = 1208.68
+margin_left = 1205.62
 margin_top = 640.849
-margin_right = 1279.68
+margin_right = 1276.62
 margin_bottom = 660.849
 text = "Gold Label"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
