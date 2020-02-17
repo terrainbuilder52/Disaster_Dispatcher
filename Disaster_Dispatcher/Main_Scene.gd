@@ -1,7 +1,7 @@
 extends Node
 
 var time = 0
-var time_passed = 60
+var time_passed = 15
 var turn = 0
 signal turn_passed
 # Declare member variables here. Examples:

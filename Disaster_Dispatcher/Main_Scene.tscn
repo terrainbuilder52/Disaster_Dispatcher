@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://WorldBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://City.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Main_Scene.gd" type="Script" id=4]
 [ext_resource path="res://WorldUI_theme.tres" type="Theme" id=5]
+[ext_resource path="res://Button.gd" type="Script" id=6]
 
 [node name="World" type="Node"]
 script = ExtResource( 4 )
@@ -44,9 +45,32 @@ margin_left = 1205.62
 margin_top = 640.849
 margin_right = 1276.62
 margin_bottom = 660.849
-text = "Gold Label"
+text = "Gold:"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Panel" type="Panel" parent="WorldUI/CanvasLayer"]
+margin_right = 102.0
+margin_bottom = 111.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSplitContainer" type="VSplitContainer" parent="WorldUI/CanvasLayer/Panel"]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 97.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="WorldUI/CanvasLayer/Panel/VSplitContainer"]
+margin_right = 91.0
+margin_bottom = 36.0
+text = "Upgrade"
+script = ExtResource( 6 )
 [connection signal="turn_passed" from="." to="City" method="_on_World_turn_passed"]
+[connection signal="pressed" from="WorldUI/CanvasLayer/Panel/VSplitContainer/Button" to="City" method="_on_Button_pressed"]
