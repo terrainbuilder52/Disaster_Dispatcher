@@ -54,7 +54,7 @@ __meta__ = {
 
 [node name="Panel" type="Panel" parent="WorldUI/CanvasLayer"]
 margin_right = 102.0
-margin_bottom = 111.0
+margin_bottom = 57.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -70,7 +70,14 @@ __meta__ = {
 
 [node name="Button" type="Button" parent="WorldUI/CanvasLayer/Panel/VSplitContainer"]
 margin_right = 91.0
-margin_bottom = 36.0
+margin_bottom = 20.0
 text = "Upgrade"
+
+[node name="Label" type="Label" parent="WorldUI/CanvasLayer/Panel/VSplitContainer"]
+margin_top = 32.0
+margin_right = 91.0
+margin_bottom = 46.0
+text = "Cost: 100"
+align = 1
 [connection signal="turn_passed" from="." to="City" method="_on_World_turn_passed"]
 [connection signal="pressed" from="WorldUI/CanvasLayer/Panel/VSplitContainer/Button" to="City" method="_on_Button_pressed"]
