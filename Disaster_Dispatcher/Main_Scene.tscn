@@ -73,11 +73,22 @@ margin_right = 91.0
 margin_bottom = 20.0
 text = "Upgrade"
 
-[node name="Label" type="Label" parent="WorldUI/CanvasLayer/Panel/VSplitContainer"]
+[node name="CostLabel" type="Label" parent="WorldUI/CanvasLayer/Panel/VSplitContainer"]
 margin_top = 32.0
 margin_right = 91.0
 margin_bottom = 46.0
 text = "Cost: 100"
 align = 1
+
+[node name="CityLevelLabel" type="Label" parent="WorldUI/CanvasLayer"]
+margin_left = 1192.18
+margin_top = 657.49
+margin_right = 1257.18
+margin_bottom = 671.49
+text = "City_level:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="turn_passed" from="." to="City" method="_on_World_turn_passed"]
 [connection signal="pressed" from="WorldUI/CanvasLayer/Panel/VSplitContainer/Button" to="City" method="_on_Button_pressed"]

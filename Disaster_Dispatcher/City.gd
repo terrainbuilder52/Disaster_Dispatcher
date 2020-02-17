@@ -7,21 +7,19 @@ func _ready():
 	var city_level = 0
 	var main_scene = get_parent()
 	main_scene.get_node("WorldUI/CanvasLayer/GoldLabel").text = "Gold: " + str(gold)
+	main_scene.get_node("WorldUI/CanvasLayer/CityLevelLabel").text = "City Level: " + str(city_level)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	var main_scene = get_parent()
+	main_scene.get_node("WorldUI/CanvasLayer/GoldLabel").text = "Gold: " + str(gold)
+	main_scene.get_node("WorldUI/CanvasLayer/CityLevelLabel").text = "City Level: " + str(city_level)
 
 func _on_World_turn_passed():
-	clamp(city_level, 0, 3)
-	var main_scene = get_parent()
 	gold += 10
-	main_scene.get_node("WorldUI/CanvasLayer/GoldLabel").text = "Gold: " + str(gold)
 	
-
-
-
+	
 func _on_Button_pressed():
 	if city_level != 3:
 		if gold >= 100:
@@ -29,3 +27,5 @@ func _on_Button_pressed():
 			city_level += 1
 			
 			print(city_level)
+			
+	
