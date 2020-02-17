@@ -25,3 +25,4 @@ func _process(delta):
 
 func _on_Turn_passed():
 		emit_signal("turn_passed")
+
