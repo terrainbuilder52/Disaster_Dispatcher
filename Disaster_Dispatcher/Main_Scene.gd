@@ -20,7 +20,7 @@ func _process(delta):
 		time = 0
 		turn += 1
 		_on_Turn_passed()
-	$WorldUI/CanvasLayer/TurnLabel.text = "Turn: " + str(turn)
+	$WorldUI/StatsLabels/TurnLabel.text = "Turn: " + str(turn)
 
 
 func _on_Turn_passed():

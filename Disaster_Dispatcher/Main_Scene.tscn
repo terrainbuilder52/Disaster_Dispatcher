@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://WorldBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://City.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Main_Scene.gd" type="Script" id=4]
@@ -16,8 +15,6 @@ script = ExtResource( 4 )
 [node name="City" parent="." instance=ExtResource( 3 )]
 position = Vector2( 640, 512 )
 
-[node name="UI" parent="." instance=ExtResource( 1 )]
-
 [node name="WorldUI" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -27,33 +24,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CanvasLayer" type="CanvasLayer" parent="WorldUI"]
-layer = 100
-
-[node name="TurnLabel" type="Label" parent="WorldUI/CanvasLayer"]
-margin_left = 1202.0
-margin_top = 626.0
-margin_right = 1276.0
-margin_bottom = 645.0
-text = "Turn Label"
-align = 2
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GoldLabel" type="Label" parent="WorldUI/CanvasLayer"]
-margin_left = 1205.62
-margin_top = 640.849
-margin_right = 1276.62
-margin_bottom = 660.849
-text = "Gold:"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="Panel" parent="WorldUI/CanvasLayer"]
+[node name="ActionMenu" type="Panel" parent="WorldUI"]
 margin_right = 102.0
 margin_bottom = 57.0
 script = ExtResource( 6 )
@@ -61,7 +32,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VSplitContainer" type="VSplitContainer" parent="WorldUI/CanvasLayer/Panel"]
+[node name="VSplitContainer" type="VBoxContainer" parent="WorldUI/ActionMenu"]
 margin_left = 6.0
 margin_top = 4.0
 margin_right = 97.0
@@ -70,27 +41,56 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="WorldUI/CanvasLayer/Panel/VSplitContainer"]
+[node name="Button" type="Button" parent="WorldUI/ActionMenu/VSplitContainer"]
 margin_right = 91.0
 margin_bottom = 20.0
 text = "Upgrade"
 
-[node name="CostLabel" type="Label" parent="WorldUI/CanvasLayer/Panel/VSplitContainer"]
-margin_top = 32.0
+[node name="CostLabel" type="Label" parent="WorldUI/ActionMenu/VSplitContainer"]
+margin_top = 24.0
 margin_right = 91.0
-margin_bottom = 46.0
+margin_bottom = 38.0
 text = "Cost: 100"
 align = 1
 
-[node name="CityLevelLabel" type="Label" parent="WorldUI/CanvasLayer"]
-margin_left = 1192.18
-margin_top = 657.49
-margin_right = 1257.18
-margin_bottom = 671.49
+[node name="StatsLabels" type="VBoxContainer" parent="WorldUI"]
+margin_left = 1183.53
+margin_top = 648.902
+margin_right = 1248.53
+margin_bottom = 715.902
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TurnLabel" type="Label" parent="WorldUI/StatsLabels"]
+margin_right = 65.0
+margin_bottom = 31.0
+text = "Turn Label"
+align = 2
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldLabel" type="Label" parent="WorldUI/StatsLabels"]
+margin_top = 35.0
+margin_right = 65.0
+margin_bottom = 49.0
+text = "Gold:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CityLevelLabel" type="Label" parent="WorldUI/StatsLabels"]
+margin_top = 53.0
+margin_right = 65.0
+margin_bottom = 67.0
 text = "City_level:"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="turn_passed" from="." to="City" method="_on_World_turn_passed"]
-[connection signal="pressed" from="WorldUI/CanvasLayer/Panel/VSplitContainer/Button" to="City" method="_on_Button_pressed"]
+[connection signal="pressed" from="WorldUI/ActionMenu/VSplitContainer/Button" to="City" method="_on_Button_pressed"]
