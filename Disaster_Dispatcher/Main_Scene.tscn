@@ -26,7 +26,7 @@ __meta__ = {
 
 [node name="ActionMenu" type="Panel" parent="WorldUI"]
 margin_right = 102.0
-margin_bottom = 57.0
+margin_bottom = 276.0
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -41,29 +41,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="WorldUI/ActionMenu/VSplitContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="WorldUI/ActionMenu/VSplitContainer"]
+margin_right = 91.0
+margin_bottom = 38.0
+
+[node name="Button" type="Button" parent="WorldUI/ActionMenu/VSplitContainer/VBoxContainer"]
 margin_right = 91.0
 margin_bottom = 20.0
 text = "Upgrade"
 
-[node name="CostLabel" type="Label" parent="WorldUI/ActionMenu/VSplitContainer"]
+[node name="CostLabel" type="Label" parent="WorldUI/ActionMenu/VSplitContainer/VBoxContainer"]
 margin_top = 24.0
 margin_right = 91.0
 margin_bottom = 38.0
 text = "Cost: 100"
 align = 1
 
-[node name="StatsLabels" type="VBoxContainer" parent="WorldUI"]
-margin_left = 1183.53
-margin_top = 648.902
-margin_right = 1248.53
-margin_bottom = 715.902
+[node name="StatsLabels" type="Panel" parent="WorldUI"]
+margin_left = 1201.59
+margin_top = 0.297987
+margin_right = 1279.59
+margin_bottom = 75.298
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="TurnLabel" type="Label" parent="WorldUI/StatsLabels"]
+[node name="VBoxContainer" type="VBoxContainer" parent="WorldUI/StatsLabels"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TurnLabel" type="Label" parent="WorldUI/StatsLabels/VBoxContainer"]
 margin_right = 65.0
 margin_bottom = 31.0
 text = "Turn Label"
@@ -73,7 +81,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GoldLabel" type="Label" parent="WorldUI/StatsLabels"]
+[node name="GoldLabel" type="Label" parent="WorldUI/StatsLabels/VBoxContainer"]
 margin_top = 35.0
 margin_right = 65.0
 margin_bottom = 49.0
@@ -83,7 +91,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CityLevelLabel" type="Label" parent="WorldUI/StatsLabels"]
+[node name="CityLevelLabel" type="Label" parent="WorldUI/StatsLabels/VBoxContainer"]
 margin_top = 53.0
 margin_right = 65.0
 margin_bottom = 67.0
@@ -93,4 +101,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="turn_passed" from="." to="City" method="_on_World_turn_passed"]
-[connection signal="pressed" from="WorldUI/ActionMenu/VSplitContainer/Button" to="City" method="_on_Button_pressed"]
+[connection signal="pressed" from="WorldUI/ActionMenu/VSplitContainer/VBoxContainer/Button" to="City" method="_on_Button_pressed"]

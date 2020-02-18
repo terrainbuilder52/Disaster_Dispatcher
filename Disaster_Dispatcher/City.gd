@@ -6,15 +6,15 @@ var city_level = 0
 func _ready():
 	var city_level = 0
 	var main_scene = get_parent()
-	main_scene.get_node("WorldUI/StatsLabels/GoldLabel").text = "Gold: " + str(gold)
-	main_scene.get_node("WorldUI/StatsLabels/CityLevelLabel").text = "City Level: " + str(city_level)
+	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/GoldLabel").text = "Gold: " + str(gold)
+	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/CityLevelLabel").text = "City Level: " + str(city_level)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var main_scene = get_parent()
-	main_scene.get_node("WorldUI/StatsLabels/GoldLabel").text = "Gold: " + str(gold)
-	main_scene.get_node("WorldUI/StatsLabels/CityLevelLabel").text = "City Level: " + str(city_level)
+	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/GoldLabel").text = "Gold: " + str(gold)
+	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/CityLevelLabel").text = "City Level: " + str(city_level)
 
 func _on_World_turn_passed():
 	gold += 10
