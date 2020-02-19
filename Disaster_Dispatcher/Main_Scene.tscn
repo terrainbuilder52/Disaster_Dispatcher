@@ -104,10 +104,11 @@ __meta__ = {
 }
 
 [node name="StartGameButton" type="Button" parent="WorldUI"]
-margin_left = 11.5981
-margin_top = 638.96
-margin_right = 87.5981
-margin_bottom = 706.96
+margin_left = 12.0
+margin_top = 683.0
+margin_right = 88.0
+margin_bottom = 707.0
+text = ">>"
 __meta__ = {
 "_edit_use_anchors_": false
 }

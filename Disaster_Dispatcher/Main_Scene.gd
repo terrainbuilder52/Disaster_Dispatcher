@@ -3,6 +3,7 @@ extends Node
 var time = 0
 var time_passed = 15
 var turn = 0
+var game_round = 0
 signal turn_passed
 
 var start_game = false
@@ -19,10 +20,13 @@ func _process(delta):
 			time = 0
 			turn += 1
 			_on_Turn_passed()
-	$WorldUI/StatsLabels/VBoxContainer/TurnLabel.text = "Turn: " + str(turn)
+	$WorldUI/StatsLabels/VBoxContainer/TurnLabel.text = "Round: " + str(turn)
+	
+	#Restart Turn
 	if turn >= 100:
 		turn = 0
 		start_game = false
+		game_round += 1
 
 func _on_Turn_passed():
 		emit_signal("turn_passed")
