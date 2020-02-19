@@ -11,6 +11,7 @@
 script = ExtResource( 4 )
 
 [node name="WorldBackground" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0.663452, -0.663422 )
 
 [node name="City" parent="." instance=ExtResource( 3 )]
 position = Vector2( 640, 512 )
@@ -25,8 +26,9 @@ __meta__ = {
 }
 
 [node name="ActionMenu" type="Panel" parent="WorldUI"]
-margin_right = 102.0
-margin_bottom = 276.0
+margin_right = 104.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 60 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -45,7 +47,7 @@ __meta__ = {
 margin_right = 91.0
 margin_bottom = 38.0
 
-[node name="Button" type="Button" parent="WorldUI/ActionMenu/VSplitContainer/VBoxContainer"]
+[node name="UpgradeCityButton" type="Button" parent="WorldUI/ActionMenu/VSplitContainer/VBoxContainer"]
 margin_right = 91.0
 margin_bottom = 20.0
 text = "Upgrade"
@@ -100,5 +102,15 @@ align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="StartGameButton" type="Button" parent="WorldUI"]
+margin_left = 11.5981
+margin_top = 638.96
+margin_right = 87.5981
+margin_bottom = 706.96
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="turn_passed" from="." to="City" method="_on_World_turn_passed"]
-[connection signal="pressed" from="WorldUI/ActionMenu/VSplitContainer/VBoxContainer/Button" to="City" method="_on_Button_pressed"]
+[connection signal="pressed" from="WorldUI/ActionMenu/VSplitContainer/VBoxContainer/UpgradeCityButton" to="City" method="_on_Button_pressed"]
+[connection signal="pressed" from="WorldUI/StartGameButton" to="." method="_on_StartGameButton_pressed"]
