@@ -5,6 +5,7 @@ var health = 100
 var population = 100
 
 # Called when the node enters the scene tree for the first time.
+#Sets Labels
 func _ready():
 	var city_level = 0
 	var main_scene = get_parent()
@@ -13,6 +14,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+#Updates Labels
 func _process(delta):
 	var main_scene = get_parent()
 	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/GoldLabel").text = "Gold: " + str(gold)
@@ -26,9 +28,11 @@ func _on_World_turn_passed():
 func _on_Button_pressed():
 	if city_level != 3:
 		if gold >= 100:
-			gold -= 100
-			city_level += 1
 			
-			print(city_level)
+			#Change stats
+			gold -= 100
+			health += 100
+			population += 100
+			city_level += 1
 			
 	

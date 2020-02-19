@@ -11,7 +11,7 @@
 script = ExtResource( 4 )
 
 [node name="WorldBackground" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0.663452, -0.663422 )
+position = Vector2( 0.663452, -0.245293 )
 
 [node name="City" parent="." instance=ExtResource( 3 )]
 position = Vector2( 640, 512 )
@@ -26,11 +26,14 @@ __meta__ = {
 }
 
 [node name="ActionMenu" type="Panel" parent="WorldUI"]
-margin_right = 104.0
-margin_bottom = 60.0
+margin_left = 0.0858459
+margin_top = 0.188885
+margin_right = 104.086
+margin_bottom = 60.1889
 rect_min_size = Vector2( 100, 60 )
 script = ExtResource( 6 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -60,45 +63,46 @@ text = "Cost: 100"
 align = 1
 
 [node name="StatsLabels" type="Panel" parent="WorldUI"]
-margin_left = 1201.59
-margin_top = 0.297987
-margin_right = 1279.59
-margin_bottom = 75.298
+margin_top = 60.0
+margin_right = 104.0
+margin_bottom = 116.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WorldUI/StatsLabels"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -38.5
+margin_right = 38.5
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TurnLabel" type="Label" parent="WorldUI/StatsLabels/VBoxContainer"]
-margin_right = 65.0
-margin_bottom = 31.0
-text = "Turn Label"
-align = 2
-autowrap = true
+margin_right = 77.0
+margin_bottom = 14.0
+text = "Round: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GoldLabel" type="Label" parent="WorldUI/StatsLabels/VBoxContainer"]
-margin_top = 35.0
-margin_right = 65.0
-margin_bottom = 49.0
-text = "Gold:"
-align = 2
+margin_top = 18.0
+margin_right = 77.0
+margin_bottom = 32.0
+text = "Gold: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CityLevelLabel" type="Label" parent="WorldUI/StatsLabels/VBoxContainer"]
-margin_top = 53.0
-margin_right = 65.0
-margin_bottom = 67.0
-text = "City_level:"
-align = 2
+margin_top = 36.0
+margin_right = 77.0
+margin_bottom = 50.0
+text = "City_level: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
