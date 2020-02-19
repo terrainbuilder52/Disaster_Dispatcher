@@ -20,7 +20,7 @@ func _process(delta):
 			time = 0
 			turn += 1
 			_on_Turn_passed()
-	$WorldUI/StatsLabels/VBoxContainer/TurnLabel.text = "Round: " + str(turn)
+	$WorldUI/StatsLabels/VBoxContainer/TurnLabel.text = "Round: " + str(game_round)
 	
 	#Restart Turn
 	if turn >= 100:
