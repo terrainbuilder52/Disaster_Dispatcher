@@ -62,4 +62,4 @@ func disaster_generation():
 		disaster_list.append(disasters_list[int(rand_range(0, disasters_list.size()))])
 
 func _on_City_has_died():
-	get_tree().quit()
+	get_tree().change_scene("res://scenes/EndScreen.tscn")
