@@ -3,9 +3,13 @@ var gold = 0
 var city_level = 1
 var max_city_level = 4
 var health = 100
+var max_health = 100
 var population = 100
+var max_population = 100
 
 var city_upgrade_cost
+
+signal has_died
 # Called when the node enters the scene tree for the first time.
 #Sets Labels
 func _ready():
@@ -24,10 +28,17 @@ func _process(delta):
 	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/HealthLabel").text = "HP: " + str(health)
 	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/PopulationLabel").text = "Pop: " + str(population)
 	
+	#Hide menu when max upgrade
 	if city_level >= max_city_level:
 		$"../WorldUI/ActionMenu".hide()
 	
+	#Calculate cost of city upgrade
 	city_upgrade_cost = int(pow(100, log(city_level * 2)))
+	
+	#Check city health and population
+	if health <= 0 or population <= 0:
+		emit_signal("has_died")
+		
 #Passive Gold generation
 func _on_World_turn_passed():
 	gold += 10
@@ -38,6 +49,10 @@ func _on_UpgradeCityButton_pressed():
 		if gold >= city_upgrade_cost:
 			#Change stats
 			gold -= city_upgrade_cost
-			health += 100
-			population += 100
+			max_health += 100
+			max_population += 100
 			city_level += 1
+
+
+func _on_World_fire_disaster():
+	health -= 1

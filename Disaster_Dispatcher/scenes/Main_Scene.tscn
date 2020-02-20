@@ -15,7 +15,9 @@ position = Vector2( 1.39856, -0.245293 )
 position = Vector2( 640, 512 )
 
 [node name="WorldUI" parent="." instance=ExtResource( 1 )]
+[connection signal="fire_disaster" from="." to="City" method="_on_World_fire_disaster"]
 [connection signal="turn_passed" from="." to="City" method="_on_World_turn_passed"]
+[connection signal="has_died" from="City" to="." method="_on_City_has_died"]
 [connection signal="pressed" from="WorldUI/ActionMenu/VSplitContainer/VBoxContainer/UpgradeCityButton" to="City" method="_on_UpgradeCityButton_pressed"]
 [connection signal="pressed" from="WorldUI/StartGameButton" to="." method="_on_StartGameButton_pressed"]
 

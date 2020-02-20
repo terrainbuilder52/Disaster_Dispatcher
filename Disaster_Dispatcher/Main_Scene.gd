@@ -6,6 +6,11 @@ var game_round = 0
 
 var disaster_list = []
 var disasters_list = ["CLEAR", "FIRE"]
+
+signal clear_disaster
+signal fire_disaster
+
+
 signal turn_passed
 
 var start_game = false
@@ -20,10 +25,10 @@ func _process(delta):
 		time += 1
 		if time > time_passed:
 
-			if disasters_list[0] in disaster_list[turn]:
-				pass
-			elif disasters_list[1] in disaster_list[turn]:
-				pass
+			if disasters_list[0] in disaster_list[turn]: # Clear day
+				emit_signal("clear_disaster")
+			elif disasters_list[1] in disaster_list[turn]: # Fire
+				emit_signal("fire_disaster")
 
 			#NEXT TURN LOGIC
 			time = 0
@@ -33,6 +38,10 @@ func _process(delta):
 	$WorldUI/StatsLabels/VBoxContainer/TurnLabel.text = "Turn: " + str(turn)
 	$WorldUI/StatsLabels/VBoxContainer/RoundLabel.text = "Round: " + str(game_round)
 	
+	if start_game == false:
+		$WorldUI/StartGameButton.text = "RUN"
+	elif start_game == true:
+		$WorldUI/StartGameButton.text = "RUNNING"
 	#Restart Turn
 	if turn >= 100:
 		turn = 0
@@ -52,5 +61,5 @@ func disaster_generation():
 	for i in range(100):
 		disaster_list.append(disasters_list[int(rand_range(0, disasters_list.size()))])
 
-		
-		
+func _on_City_has_died():
+	get_tree().quit()
