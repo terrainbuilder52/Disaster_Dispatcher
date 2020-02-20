@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://WorldUI_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/WorldBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/City.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Main_Scene.gd" type="Script" id=4]
-[ext_resource path="res://Panel.gd" type="Script" id=5]
-[ext_resource path="res://WorldUI.gd" type="Script" id=6]
 
 [node name="World" type="Node"]
 script = ExtResource( 4 )
@@ -16,130 +14,11 @@ position = Vector2( 1.39856, -0.245293 )
 [node name="City" parent="." instance=ExtResource( 3 )]
 position = Vector2( 640, 512 )
 
-[node name="WorldUI" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-theme = ExtResource( 1 )
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ActionMenu" type="Panel" parent="WorldUI"]
-margin_left = 0.0858459
-margin_top = 0.188885
-margin_right = 104.086
-margin_bottom = 60.1889
-rect_min_size = Vector2( 100, 60 )
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="VSplitContainer" type="VBoxContainer" parent="WorldUI/ActionMenu"]
-margin_left = 6.0
-margin_top = 4.0
-margin_right = 97.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="WorldUI/ActionMenu/VSplitContainer"]
-margin_right = 91.0
-margin_bottom = 38.0
-
-[node name="UpgradeCityButton" type="Button" parent="WorldUI/ActionMenu/VSplitContainer/VBoxContainer"]
-margin_right = 91.0
-margin_bottom = 20.0
-text = "Upgrade"
-
-[node name="CostLabel" type="Label" parent="WorldUI/ActionMenu/VSplitContainer/VBoxContainer"]
-margin_top = 24.0
-margin_right = 91.0
-margin_bottom = 38.0
-text = "Cost: 100"
-align = 1
-
-[node name="StatsLabels" type="Panel" parent="WorldUI"]
-margin_top = 60.0
-margin_right = 104.0
-margin_bottom = 173.0
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="WorldUI/StatsLabels"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -38.5
-margin_right = 38.5
-margin_bottom = 50.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RoundLabel" type="Label" parent="WorldUI/StatsLabels/VBoxContainer"]
-margin_right = 77.0
-margin_bottom = 14.0
-text = "Round: 0"
-
-[node name="TurnLabel" type="Label" parent="WorldUI/StatsLabels/VBoxContainer"]
-margin_top = 18.0
-margin_right = 77.0
-margin_bottom = 32.0
-text = "Turn: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GoldLabel" type="Label" parent="WorldUI/StatsLabels/VBoxContainer"]
-margin_top = 36.0
-margin_right = 77.0
-margin_bottom = 50.0
-text = "Gold: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CityLevelLabel" type="Label" parent="WorldUI/StatsLabels/VBoxContainer"]
-margin_top = 54.0
-margin_right = 77.0
-margin_bottom = 68.0
-text = "City_level: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HealthLabel" type="Label" parent="WorldUI/StatsLabels/VBoxContainer"]
-margin_top = 72.0
-margin_right = 77.0
-margin_bottom = 86.0
-text = "HP: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PopulationLabel" type="Label" parent="WorldUI/StatsLabels/VBoxContainer"]
-margin_top = 90.0
-margin_right = 77.0
-margin_bottom = 104.0
-text = "Pop: 0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartGameButton" type="Button" parent="WorldUI"]
-margin_left = 12.0
-margin_top = 683.0
-margin_right = 88.0
-margin_bottom = 707.0
-text = ">>"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="WorldUI" parent="." instance=ExtResource( 1 )]
 [connection signal="turn_passed" from="." to="City" method="_on_World_turn_passed"]
-[connection signal="pressed" from="WorldUI/ActionMenu/VSplitContainer/VBoxContainer/UpgradeCityButton" to="City" method="_on_Button_pressed"]
+[connection signal="pressed" from="WorldUI/ActionMenu/VSplitContainer/VBoxContainer/UpgradeCityButton" to="City" method="_on_UpgradeCityButton_pressed"]
 [connection signal="pressed" from="WorldUI/StartGameButton" to="." method="_on_StartGameButton_pressed"]
+
+[editable path="WorldUI"]
+
+[editable path="WorldUI/ActionMenu"]

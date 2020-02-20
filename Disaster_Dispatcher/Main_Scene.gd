@@ -1,6 +1,6 @@
 extends Node
 var time = 0
-var time_passed = 5
+var time_passed = 1
 var turn = 0
 var game_round = 0
 
