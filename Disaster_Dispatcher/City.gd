@@ -19,7 +19,8 @@ func _process(delta):
 	var main_scene = get_parent()
 	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/GoldLabel").text = "Gold: " + str(gold)
 	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/CityLevelLabel").text = "City Level: " + str(city_level)
-
+	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/HealthLabel").text = "HP: " + str(health)
+	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/PopulationLabel").text = "Pop: " + str(population)
 #Passive Gold generation
 func _on_World_turn_passed():
 	gold += 10

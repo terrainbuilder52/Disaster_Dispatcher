@@ -19,10 +19,19 @@ func _process(delta):
 	if start_game:
 		time += 1
 		if time > time_passed:
+
+			if disasters_list[0] in disaster_list[turn]:
+				pass
+			elif disasters_list[1] in disaster_list[turn]:
+				pass
+
+			#NEXT TURN LOGIC
 			time = 0
 			turn += 1
 			_on_Turn_passed()
-	$WorldUI/StatsLabels/VBoxContainer/TurnLabel.text = "Round: " + str(game_round)
+			
+	$WorldUI/StatsLabels/VBoxContainer/TurnLabel.text = "Turn: " + str(turn)
+	$WorldUI/StatsLabels/VBoxContainer/RoundLabel.text = "Round: " + str(game_round)
 	
 	#Restart Turn
 	if turn >= 100:
@@ -42,7 +51,6 @@ func disaster_generation():
 	#Generate disaster map
 	for i in range(100):
 		disaster_list.append(disasters_list[int(rand_range(0, disasters_list.size()))])
-		print(disaster_list[i])
 
 		
 		
