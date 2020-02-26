@@ -4,7 +4,7 @@
 [ext_resource path="res://QuitButton.gd" type="Script" id=2]
 [ext_resource path="res://Title.tres" type="Theme" id=3]
 [ext_resource path="res://assets/fonts/Minecraft.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://assets/city.png" type="Texture" id=5]
+[ext_resource path="res://assets/city/city3.png" type="Texture" id=5]
 [ext_resource path="res://assets/background/base_background.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]

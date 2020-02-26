@@ -1,10 +1,11 @@
 extends Node
+
+var fire_dis = preload("res://scenes/Disasters.tscn")
 var time = 0
 var time_passed = 2
 var turn = 0
 var max_turn = 100
 var game_round = 1
-
 
 var disaster_list = []
 var disasters_list = [
@@ -12,8 +13,6 @@ var disasters_list = [
 
 signal clear_disaster
 signal fire_disaster
-
-
 signal turn_passed
 
 var start_game = false
@@ -25,13 +24,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if start_game:
-		time += 1				
+		time += 1
 		if time > time_passed:
-			if disasters_list[0] in disaster_list[turn]: # Clear day
-				emit_signal("clear_disaster")
-			elif disasters_list[1] in disaster_list[turn]: # Fire
-				emit_signal("fire_disaster")
-
+			disaster_logic(turn)
+			
 			#NEXT TURN LOGIC
 			time = 0
 			turn += 1
@@ -64,6 +60,16 @@ func disaster_generation(round_length):
 			disaster_list.append(disasters_list[0])
 			
 	print(disaster_list)
+	
+func disaster_logic(turn):
+	if disasters_list[0] in disaster_list[turn]: # Clear day
+		emit_signal("clear_disaster")
+		time_passed = 4
+	elif disasters_list[1] in disaster_list[turn]: # Fire
+		emit_signal("fire_disaster")
+		var fire = fire_dis.instance()
+		add_child(fire)
+		time_passed = 120
 
 # SIGNAL FUNCTIONS	
 func _on_City_has_died():

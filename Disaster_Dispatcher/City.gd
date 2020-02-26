@@ -1,8 +1,8 @@
 extends Node2D
 
-var city_level_1 = preload("res://assets/city.png")
-var city_level_2 = preload("res://assets/city2.png")
-var city_level_3 = preload("res://assets/city3.png")
+var city_level_1 = preload("res://assets/city/city.png")
+var city_level_2 = preload("res://assets/city/city2.png")
+var city_level_3 = preload("res://assets/city/city3.png")
 
 var gold = 0
 var city_level = 1
