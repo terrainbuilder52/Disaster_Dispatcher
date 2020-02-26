@@ -1,4 +1,9 @@
 extends Node2D
+
+var city_level_1 = preload("res://assets/city/city.png")
+var city_level_2 = preload("res://assets/city/city2.png")
+var city_level_3 = preload("res://assets/city/city3.png")
+
 var gold = 0
 var city_level = 1
 var max_city_level = 4
@@ -52,6 +57,11 @@ func _on_UpgradeCityButton_pressed():
 			max_health += 100
 			max_population += 100
 			city_level += 1
+	
+	if city_level == 2:
+		$Sprite.texture = city_level_2
+	elif city_level == 3:
+		$Sprite.texture = city_level_3
 
 
 func _on_World_fire_disaster():
