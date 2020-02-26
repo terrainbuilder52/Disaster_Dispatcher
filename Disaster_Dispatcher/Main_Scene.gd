@@ -1,6 +1,5 @@
 extends Node
 
-var fire_dis = preload("res://scenes/Disasters.tscn")
 var time = 0
 var time_passed = 2
 var turn = 0
@@ -14,6 +13,7 @@ var disasters_list = [
 signal clear_disaster
 signal fire_disaster
 signal turn_passed
+signal disaster_died
 
 var start_game = false
 
@@ -48,6 +48,7 @@ func _process(delta):
 		game_round += 1
 		disaster_list.clear()
 		disaster_generation(max_turn)
+		$Disaster.hide()
 		
 func disaster_generation(round_length):
 	#Generate disaster map
@@ -67,9 +68,10 @@ func disaster_logic(turn):
 		time_passed = 4
 	elif disasters_list[1] in disaster_list[turn]: # Fire
 		emit_signal("fire_disaster")
-		var fire = fire_dis.instance()
-		add_child(fire)
-		time_passed = 120
+		$Disaster.show()
+		time_passed = 30
+	if !disasters_list[1] in disaster_list[turn]: # If not fire
+		emit_signal("disaster_died")
 
 # SIGNAL FUNCTIONS	
 func _on_City_has_died():
