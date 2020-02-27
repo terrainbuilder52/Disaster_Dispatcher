@@ -48,7 +48,7 @@ func _process(delta):
 		game_round += 1
 		disaster_list.clear()
 		disaster_generation(max_turn)
-		$Disaster.hide()
+		$FireDisaster.hide()
 		
 func disaster_generation(round_length):
 	#Generate disaster map
@@ -66,7 +66,7 @@ func disaster_logic(turn):
 		time_passed = 4
 	elif disasters_list[1] in disaster_list[turn]: # Fire
 		emit_signal("fire_disaster")
-		$Disaster.show()
+		$FireDisaster.show()
 		time_passed = 30
 	if !disasters_list[1] in disaster_list[turn]: # If not fire
 		emit_signal("disaster_died")
