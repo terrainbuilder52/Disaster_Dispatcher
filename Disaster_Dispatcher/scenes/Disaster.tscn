@@ -17,12 +17,12 @@ animations = [ {
 extents = Vector2( 66.7918, 94.3962 )
 
 [node name="Disaster" type="Node2D"]
-position = Vector2( 668.858, 528 )
+position = Vector2( 624, 504 )
+
+[node name="Area2D" type="Area2D" parent="."]
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="Area2D" type="Area2D" parent="."]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
 frames = SubResource( 1 )
@@ -30,4 +30,30 @@ frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2( -88.0001, -8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D2"]
+frames = SubResource( 1 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource( 2 )
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2( 112, -16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D3"]
+frames = SubResource( 1 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
 shape = SubResource( 2 )

@@ -8,7 +8,7 @@ var game_round = 1
 
 var disaster_list = []
 var disasters_list = [
-	"CLEAR", "FIRE", "CLEAR", "FLOOD", "CLEAR", "TORNADO", "CLEAR", "RAINBOW", "MONSTER", "PlAGUE"]
+	"CLEAR", "FIRE", "FLOOD", "TORNADO", "RAINBOW", "MONSTER", "PlAGUE"]
 
 signal clear_disaster
 signal fire_disaster
@@ -53,12 +53,10 @@ func _process(delta):
 func disaster_generation(round_length):
 	#Generate disaster map
 	for i in range(round_length):
-		if i <= 10:
-			disaster_list.append(disasters_list[0])
-		elif i > 10:
-			disaster_list.append(disasters_list[int(rand_range(0, min(game_round, disasters_list.size())))])
-		else:
-			disaster_list.append(disasters_list[0])
+		disaster_list.append(disasters_list[0])
+		
+	for i in range(int(round_length/2)):
+		disaster_list[int(rand_range(0, round_length))] = (disasters_list[int(rand_range(0, min(game_round, disasters_list.size())))])
 			
 	print(disaster_list)
 	
