@@ -66,3 +66,8 @@ func _on_UpgradeCityButton_pressed():
 
 func _on_World_fire_disaster():
 	health -= 1
+
+
+func _on_World_flood_disaster():
+	health -= 2
+	population -= 2
