@@ -14,19 +14,18 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 66.7918, 94.3962 )
+extents = Vector2( 32, 32 )
 
 [node name="Disaster" type="Node2D"]
-position = Vector2( 668.858, 528 )
+position = Vector2( 624, 504 )
+
+[node name="Area2D" type="Area2D" parent="."]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Area2D" type="Area2D" parent="."]
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
