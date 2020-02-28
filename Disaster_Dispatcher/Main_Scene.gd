@@ -52,9 +52,8 @@ func _process(delta):
 		game_round += 1
 		disaster_list.clear()
 		disaster_generation(max_turn)
-		
+# GENERATE DISASTER MAP		
 func disaster_generation(round_length):
-	#Generate disaster map
 	for i in range(round_length):
 		disaster_list.append(disasters_list[0])
 		
@@ -62,7 +61,7 @@ func disaster_generation(round_length):
 		disaster_list[int(rand_range(0, round_length))] = (disasters_list[int(rand_range(0, min(game_round, disasters_list.size())))])
 			
 	print(disaster_list)
-	
+#VISUALIZE DISASTERS AND SENDING SIGNALS TO CHECK IF THE DISASTER IS A LIVE OR DEAD	
 func disaster_logic(turn):
 	emit_signal("disaster_died")
 	
@@ -78,9 +77,7 @@ func disaster_logic(turn):
 		$FloodDisaster.show()
 		time_passed = 30
 
-		
-
-# SIGNAL FUNCTIONS	
+# SIGNAL FUNCTIONS
 func _on_City_has_died():
 	get_tree().change_scene("res://scenes/EndScreen.tscn")
 

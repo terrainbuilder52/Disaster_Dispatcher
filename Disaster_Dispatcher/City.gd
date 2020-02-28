@@ -33,9 +33,12 @@ func _process(delta):
 	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/HealthLabel").text = "HP: " + str(health)
 	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/PopulationLabel").text = "Pop: " + str(population)
 	
-	#Hide menu when max upgrade
-	if city_level >= max_city_level:
-		$"../WorldUI/ActionMenu".hide()
+	# Clamp health
+	health = clamp(health, 0, max_health)
+	
+	# Clamp Gold
+	if gold < 0:
+		gold = 0
 	
 	#Calculate cost of city upgrade
 	city_upgrade_cost = int(pow(100, log(city_level * 2)))
@@ -71,3 +74,9 @@ func _on_World_fire_disaster():
 func _on_World_flood_disaster():
 	health -= 2
 	population -= 2
+
+
+func _on_RepairCityButton_pressed():
+	if gold >= 100:
+		health += 20
+		gold -= 100

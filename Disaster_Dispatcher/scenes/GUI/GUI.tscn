@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://WorldUI.gd" type="Script" id=2]
-[ext_resource path="res://scenes/ActionMenu.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/StatsLabels.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/StartGameButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/GUI/ActionMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/GUI/StatsLabels.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/GUI/StartGameButton.tscn" type="PackedScene" id=5]
 
 [node name="WorldUI" type="Control"]
 anchor_right = 1.0
@@ -20,3 +20,7 @@ margin_bottom = 88.0
 [node name="StatsLabels" parent="." instance=ExtResource( 4 )]
 
 [node name="StartGameButton" parent="." instance=ExtResource( 5 )]
+margin_left = 8.0
+margin_top = 48.0
+margin_right = 84.0
+margin_bottom = 72.0
