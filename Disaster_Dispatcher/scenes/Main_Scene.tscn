@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/GUI/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/WorldBackground.tscn" type="PackedScene" id=2]
@@ -10,6 +10,10 @@
 [ext_resource path="res://scenes/disasters/FloodDisaster.gd" type="Script" id=8]
 [ext_resource path="res://scenes/disasters/PlagueDisaster.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/disasters/PlagueDisaster.gd" type="Script" id=10]
+[ext_resource path="res://scenes/disasters/TornadoDisaster.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/disasters/TornadoDisaster.gd" type="Script" id=12]
+[ext_resource path="res://scenes/disasters/MonsterDisaster.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/disasters/MonsterDisaster.gd" type="Script" id=14]
 
 [node name="World" type="Node"]
 script = ExtResource( 4 )
@@ -36,12 +40,24 @@ script = ExtResource( 8 )
 [node name="PlagueDisaster" parent="." instance=ExtResource( 9 )]
 position = Vector2( 640, 512 )
 script = ExtResource( 10 )
+
+[node name="TornadoDisaster" parent="." instance=ExtResource( 11 )]
+position = Vector2( 656, 472 )
+script = ExtResource( 12 )
+
+[node name="MonsterDisaster" parent="." instance=ExtResource( 13 )]
+position = Vector2( 624, 472 )
+script = ExtResource( 14 )
+[connection signal="disaster_died" from="." to="TornadoDisaster" method="_on_World_disaster_died"]
+[connection signal="disaster_died" from="." to="MonsterDisaster" method="_on_World_disaster_died"]
 [connection signal="disaster_died" from="." to="FloodDisaster" method="_on_World_disaster_died"]
 [connection signal="disaster_died" from="." to="FireDisaster" method="_on_World_disaster_died"]
 [connection signal="disaster_died" from="." to="PlagueDisaster" method="_on_World_disaster_died"]
 [connection signal="fire_disaster" from="." to="City" method="_on_World_fire_disaster"]
 [connection signal="flood_disaster" from="." to="City" method="_on_World_flood_disaster"]
+[connection signal="monster_disaster" from="." to="City" method="_on_World_monster_disaster"]
 [connection signal="plague_disaster" from="." to="City" method="_on_World_plague_disaster"]
+[connection signal="tornado_disaster" from="." to="City" method="_on_World_tornado_disaster"]
 [connection signal="turn_passed" from="." to="City" method="_on_World_turn_passed"]
 [connection signal="pressed" from="WorldUI/ActionMenu/Panel/HBoxContainer/UpgradeContainer/UpgradeCityButton" to="City" method="_on_UpgradeCityButton_pressed"]
 [connection signal="pressed" from="WorldUI/ActionMenu/Panel/HBoxContainer/RepairContainer/RepairCityButton" to="City" method="_on_RepairCityButton_pressed"]

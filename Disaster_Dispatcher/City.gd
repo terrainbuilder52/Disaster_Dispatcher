@@ -7,10 +7,10 @@ var city_level_3 = preload("res://assets/city/city3.png")
 var gold = 0
 var city_level = 1
 var max_city_level = 4
-var health = 100
-var max_health = 100
-var population = 100
-var max_population = 100
+var health = 10000
+var max_health = 10000
+var population = 10000
+var max_population = 10000
 
 var city_upgrade_cost
 
@@ -72,13 +72,21 @@ func _on_RepairCityButton_pressed():
 			health += 20
 			gold -= 100
 
-#DISASTERS
+# DISASTERS
 func _on_World_fire_disaster():
-	health -= 1
+	health -= 4
 
 func _on_World_flood_disaster():
-	health -= 2
-	population -= 2
+	health -= 10
+	population -= 10
 
 func _on_World_plague_disaster():
-		population -= 25
+	population -= 25
+
+func _on_World_tornado_disaster():
+	health -= 30
+	population -= 10
+	
+func _on_World_monster_disaster():
+	health -= 60
+	population -= 60
