@@ -7,10 +7,10 @@ var city_level_3 = preload("res://assets/city/city3.png")
 var gold = 0
 var city_level = 1
 var max_city_level = 4
-var health = 10000
-var max_health = 10000
-var population = 10000
-var max_population = 10000
+var health = 250
+var max_health = 250
+var population = 250
+var max_population = 250
 
 var city_upgrade_cost
 
@@ -41,7 +41,7 @@ func _process(delta):
 		gold = 0
 	
 	#Calculate cost of city upgrade
-	city_upgrade_cost = int(pow(100, log(city_level * 2)))
+	city_upgrade_cost = 1000 * city_level
 	
 	#Check city health and population
 	if health <= 0 or population <= 0:

@@ -54,12 +54,12 @@ script = ExtResource( 16 )
 
 [node name="Panel" parent="WorldUI/ActionMenu" index="0"]
 margin_bottom = 768.0
-[connection signal="disaster_died" from="." to="TornadoDisaster" method="_on_World_disaster_died"]
-[connection signal="disaster_died" from="." to="MonsterDisaster" method="_on_World_disaster_died"]
-[connection signal="disaster_died" from="." to="PlagueDisaster" method="_on_World_disaster_died"]
-[connection signal="disaster_died" from="." to="RainbowDisaster" method="_on_World_disaster_died"]
 [connection signal="disaster_died" from="." to="FireDisaster" method="_on_World_disaster_died"]
 [connection signal="disaster_died" from="." to="FloodDisaster" method="_on_World_disaster_died"]
+[connection signal="disaster_died" from="." to="PlagueDisaster" method="_on_World_disaster_died"]
+[connection signal="disaster_died" from="." to="TornadoDisaster" method="_on_World_disaster_died"]
+[connection signal="disaster_died" from="." to="MonsterDisaster" method="_on_World_disaster_died"]
+[connection signal="disaster_died" from="." to="RainbowDisaster" method="_on_World_disaster_died"]
 [connection signal="fire_disaster" from="." to="City" method="_on_World_fire_disaster"]
 [connection signal="flood_disaster" from="." to="City" method="_on_World_flood_disaster"]
 [connection signal="monster_disaster" from="." to="City" method="_on_World_monster_disaster"]
