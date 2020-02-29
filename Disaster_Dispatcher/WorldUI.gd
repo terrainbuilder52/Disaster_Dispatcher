@@ -12,8 +12,10 @@ func _process(delta):
 	
 	if start_game == true:
 		$ActionMenu/Panel.hide()
+		$MayorMenu/Panel.hide()
 	else:
 		$ActionMenu/Panel.show()
+		$MayorMenu/Panel.show()
 		
 	# CITY
 	var city_scene = get_parent().get_node("City")

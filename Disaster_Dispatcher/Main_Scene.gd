@@ -13,6 +13,7 @@ var disasters_list = [
 signal clear_disaster
 signal fire_disaster
 signal flood_disaster
+signal plague_disaster
 signal tornado_disaster
 signal monster_disaster
 signal rainbow_disaster
@@ -52,6 +53,9 @@ func _process(delta):
 		game_round += 1
 		disaster_list.clear()
 		disaster_generation(max_turn)
+		$FireDisaster.hide()
+		$FloodDisaster.hide()
+		$PlagueDisaster.hide()
 # GENERATE DISASTER MAP		
 func disaster_generation(round_length):
 	for i in range(round_length):
@@ -76,6 +80,10 @@ func disaster_logic(turn):
 		emit_signal("flood_disaster")
 		$FloodDisaster.show()
 		time_passed = 30
+	elif disasters_list[3] in disaster_list[turn]:
+		emit_signal("plague_disaster")
+		$PlagueDisaster.show()
+		time_passed = 30
 
 # SIGNAL FUNCTIONS
 func _on_City_has_died():
@@ -87,3 +95,7 @@ func _on_Turn_passed():
 func _on_StartGameButton_pressed():
 	start_game = true
 			
+
+
+func _on_World_plague_disaster():
+	pass # Replace with function body.

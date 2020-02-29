@@ -65,18 +65,20 @@ func _on_UpgradeCityButton_pressed():
 		$Sprite.texture = city_level_2
 	elif city_level == 3:
 		$Sprite.texture = city_level_3
+		
+func _on_RepairCityButton_pressed():
+	if health != max_health:
+		if gold >= 100:
+			health += 20
+			gold -= 100
 
-
+#DISASTERS
 func _on_World_fire_disaster():
 	health -= 1
-
 
 func _on_World_flood_disaster():
 	health -= 2
 	population -= 2
 
-
-func _on_RepairCityButton_pressed():
-	if gold >= 100:
-		health += 20
-		gold -= 100
+func _on_World_plague_disaster():
+		population -= 25

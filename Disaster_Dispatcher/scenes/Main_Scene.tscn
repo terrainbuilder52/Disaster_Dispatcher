@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/GUI/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/WorldBackground.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://scenes/disasters/FireDisaster.gd" type="Script" id=6]
 [ext_resource path="res://scenes/disasters/FloodDisaster.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/disasters/FloodDisaster.gd" type="Script" id=8]
+[ext_resource path="res://scenes/disasters/PlagueDisaster.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/disasters/PlagueDisaster.gd" type="Script" id=10]
 
 [node name="World" type="Node"]
 script = ExtResource( 4 )
@@ -28,12 +30,18 @@ position = Vector2( 648, 528 )
 script = ExtResource( 6 )
 
 [node name="FloodDisaster" parent="." instance=ExtResource( 7 )]
-position = Vector2( 632, 384 )
+position = Vector2( 640, 360 )
 script = ExtResource( 8 )
+
+[node name="PlagueDisaster" parent="." instance=ExtResource( 9 )]
+position = Vector2( 640, 512 )
+script = ExtResource( 10 )
 [connection signal="disaster_died" from="." to="FloodDisaster" method="_on_World_disaster_died"]
 [connection signal="disaster_died" from="." to="FireDisaster" method="_on_World_disaster_died"]
+[connection signal="disaster_died" from="." to="PlagueDisaster" method="_on_World_disaster_died"]
 [connection signal="fire_disaster" from="." to="City" method="_on_World_fire_disaster"]
 [connection signal="flood_disaster" from="." to="City" method="_on_World_flood_disaster"]
+[connection signal="plague_disaster" from="." to="City" method="_on_World_plague_disaster"]
 [connection signal="turn_passed" from="." to="City" method="_on_World_turn_passed"]
 [connection signal="pressed" from="WorldUI/ActionMenu/Panel/HBoxContainer/UpgradeContainer/UpgradeCityButton" to="City" method="_on_UpgradeCityButton_pressed"]
 [connection signal="pressed" from="WorldUI/ActionMenu/Panel/HBoxContainer/RepairContainer/RepairCityButton" to="City" method="_on_RepairCityButton_pressed"]
