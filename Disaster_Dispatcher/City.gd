@@ -90,3 +90,8 @@ func _on_World_tornado_disaster():
 func _on_World_monster_disaster():
 	health -= 60
 	population -= 60
+
+
+func _on_World_rainbow_disaster():
+	health -= 100
+	population -= 100

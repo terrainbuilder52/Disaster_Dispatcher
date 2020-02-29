@@ -58,6 +58,7 @@ func _process(delta):
 		$PlagueDisaster.hide()
 		$TornadoDisaster.hide()
 		$MonsterDisaster.hide()
+		$RainbowDisaster.hide()
 # GENERATE DISASTER MAP		
 func disaster_generation(round_length):
 	for i in range(round_length):
@@ -93,6 +94,10 @@ func disaster_logic(turn):
 	elif disasters_list[5] in disaster_list[turn]:
 		emit_signal("monster_disaster")
 		$MonsterDisaster.show()
+		time_passed = 30
+	elif disasters_list[6] in disaster_list[turn]:
+		emit_signal("rainbow_disaster")
+		$RainbowDisaster.show()
 		time_passed = 30
 		
 
