@@ -7,10 +7,10 @@ var city_level_3 = preload("res://assets/city/city3.png")
 var gold = 0
 var city_level = 1
 var max_city_level = 4
-var health = 100
-var max_health = 100
-var population = 100
-var max_population = 100
+var health = 250
+var max_health = 250
+var population = 250
+var max_population = 250
 
 var city_upgrade_cost
 
@@ -33,12 +33,15 @@ func _process(delta):
 	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/HealthLabel").text = "HP: " + str(health)
 	main_scene.get_node("WorldUI/StatsLabels/VBoxContainer/PopulationLabel").text = "Pop: " + str(population)
 	
-	#Hide menu when max upgrade
-	if city_level >= max_city_level:
-		$"../WorldUI/ActionMenu".hide()
+	# Clamp health
+	health = clamp(health, 0, max_health)
+	
+	# Clamp Gold
+	if gold < 0:
+		gold = 0
 	
 	#Calculate cost of city upgrade
-	city_upgrade_cost = int(pow(100, log(city_level * 2)))
+	city_upgrade_cost = 1000 * city_level
 	
 	#Check city health and population
 	if health <= 0 or population <= 0:
@@ -62,12 +65,33 @@ func _on_UpgradeCityButton_pressed():
 		$Sprite.texture = city_level_2
 	elif city_level == 3:
 		$Sprite.texture = city_level_3
+		
+func _on_RepairCityButton_pressed():
+	if health != max_health:
+		if gold >= 100:
+			health += 20
+			gold -= 100
 
-
+# DISASTERS
 func _on_World_fire_disaster():
-	health -= 1
-
+	health -= 4
 
 func _on_World_flood_disaster():
-	health -= 2
-	population -= 2
+	health -= 10
+	population -= 10
+
+func _on_World_plague_disaster():
+	population -= 25
+
+func _on_World_tornado_disaster():
+	health -= 30
+	population -= 10
+	
+func _on_World_monster_disaster():
+	health -= 60
+	population -= 60
+
+
+func _on_World_rainbow_disaster():
+	health -= 100
+	population -= 100

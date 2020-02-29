@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://WorldUI_theme.tres" type="Theme" id=1]
+
+[node name="ActionMenu" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 100, 40 )
+theme = ExtResource( 1 )
+custom_constants/margin_top = 600
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_top = 600.0
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+margin_right = 71.0
+margin_bottom = 40.0
+
+[node name="UpgradeCityButton" type="Button" parent="Panel/HBoxContainer/UpgradeContainer"]
+margin_right = 71.0
+margin_bottom = 21.0
+text = "Upgrade"
+
+[node name="CostLabel" type="Label" parent="Panel/HBoxContainer/UpgradeContainer"]
+margin_top = 25.0
+margin_right = 71.0
+margin_bottom = 40.0
+text = "Cost: 100"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RepairContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+margin_left = 75.0
+margin_right = 136.0
+margin_bottom = 40.0
+
+[node name="RepairCityButton" type="Button" parent="Panel/HBoxContainer/RepairContainer"]
+margin_right = 61.0
+margin_bottom = 21.0
+text = "Repair"
+
+[node name="CostLabel" type="Label" parent="Panel/HBoxContainer/RepairContainer"]
+margin_top = 25.0
+margin_right = 61.0
+margin_bottom = 40.0
+text = "Cost: 100"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

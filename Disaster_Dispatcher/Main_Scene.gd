@@ -13,6 +13,7 @@ var disasters_list = [
 signal clear_disaster
 signal fire_disaster
 signal flood_disaster
+signal plague_disaster
 signal tornado_disaster
 signal monster_disaster
 signal rainbow_disaster
@@ -52,9 +53,14 @@ func _process(delta):
 		game_round += 1
 		disaster_list.clear()
 		disaster_generation(max_turn)
-		
+		$FireDisaster.hide()
+		$FloodDisaster.hide()
+		$PlagueDisaster.hide()
+		$TornadoDisaster.hide()
+		$MonsterDisaster.hide()
+		$RainbowDisaster.hide()
+# GENERATE DISASTER MAP		
 func disaster_generation(round_length):
-	#Generate disaster map
 	for i in range(round_length):
 		disaster_list.append(disasters_list[0])
 		
@@ -62,7 +68,7 @@ func disaster_generation(round_length):
 		disaster_list[int(rand_range(0, round_length))] = (disasters_list[int(rand_range(0, min(game_round, disasters_list.size())))])
 			
 	print(disaster_list)
-	
+#VISUALIZE DISASTERS AND SENDING SIGNALS TO CHECK IF THE DISASTER IS A LIVE OR DEAD	
 func disaster_logic(turn):
 	emit_signal("disaster_died")
 	
@@ -77,10 +83,25 @@ func disaster_logic(turn):
 		emit_signal("flood_disaster")
 		$FloodDisaster.show()
 		time_passed = 30
-
+	elif disasters_list[3] in disaster_list[turn]:
+		emit_signal("plague_disaster")
+		$PlagueDisaster.show()
+		time_passed = 30
+	elif disasters_list[4] in disaster_list[turn]:
+		emit_signal("tornado_disaster")
+		$TornadoDisaster.show()
+		time_passed = 30
+	elif disasters_list[5] in disaster_list[turn]:
+		emit_signal("monster_disaster")
+		$MonsterDisaster.show()
+		time_passed = 30
+	elif disasters_list[6] in disaster_list[turn]:
+		emit_signal("rainbow_disaster")
+		$RainbowDisaster.show()
+		time_passed = 30
 		
 
-# SIGNAL FUNCTIONS	
+# SIGNAL FUNCTIONS
 func _on_City_has_died():
 	get_tree().change_scene("res://scenes/EndScreen.tscn")
 
@@ -90,3 +111,7 @@ func _on_Turn_passed():
 func _on_StartGameButton_pressed():
 	start_game = true
 			
+
+
+func _on_World_plague_disaster():
+	pass # Replace with function body.
