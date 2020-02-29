@@ -27,18 +27,18 @@ __meta__ = {
 }
 
 [node name="UpgradeContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
-margin_right = 71.0
+margin_right = 61.0
 margin_bottom = 40.0
 
 [node name="UpgradeCityButton" type="Button" parent="Panel/HBoxContainer/UpgradeContainer"]
-margin_right = 71.0
-margin_bottom = 21.0
+margin_right = 61.0
+margin_bottom = 15.0
 text = "Upgrade"
 
 [node name="CostLabel" type="Label" parent="Panel/HBoxContainer/UpgradeContainer"]
-margin_top = 25.0
-margin_right = 71.0
-margin_bottom = 40.0
+margin_top = 19.0
+margin_right = 61.0
+margin_bottom = 34.0
 text = "Cost: 100"
 align = 1
 __meta__ = {
@@ -46,19 +46,19 @@ __meta__ = {
 }
 
 [node name="RepairContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
-margin_left = 75.0
-margin_right = 136.0
+margin_left = 65.0
+margin_right = 126.0
 margin_bottom = 40.0
 
 [node name="RepairCityButton" type="Button" parent="Panel/HBoxContainer/RepairContainer"]
 margin_right = 61.0
-margin_bottom = 21.0
+margin_bottom = 15.0
 text = "Repair"
 
 [node name="CostLabel" type="Label" parent="Panel/HBoxContainer/RepairContainer"]
-margin_top = 25.0
+margin_top = 19.0
 margin_right = 61.0
-margin_bottom = 40.0
+margin_bottom = 34.0
 text = "Cost: 100"
 align = 1
 __meta__ = {

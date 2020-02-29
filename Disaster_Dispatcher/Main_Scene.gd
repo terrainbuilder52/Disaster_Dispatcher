@@ -18,7 +18,10 @@ signal tornado_disaster
 signal monster_disaster
 signal rainbow_disaster
 signal turn_passed
+signal round_finished
 signal disaster_died
+
+
 
 var start_game = false
 
@@ -53,12 +56,15 @@ func _process(delta):
 		game_round += 1
 		disaster_list.clear()
 		disaster_generation(max_turn)
+		
 		$FireDisaster.hide()
 		$FloodDisaster.hide()
 		$PlagueDisaster.hide()
 		$TornadoDisaster.hide()
 		$MonsterDisaster.hide()
 		$RainbowDisaster.hide()
+		
+		emit_signal("round_finished")
 # GENERATE DISASTER MAP		
 func disaster_generation(round_length):
 	for i in range(round_length):
